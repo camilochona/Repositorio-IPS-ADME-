@@ -1,10 +1,22 @@
+<nav>
+    <div class="nav-wrapper">
+      <a href="/welcome" class="brand-logo">Softic</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="pacientes">Inicio</a></li>
+        <li><a href="#">Conectate</a></li>
+        <li><a href="pacientes/new" class="waves-effect waves-light btn">Registro</a></li>
+      </ul>
+    </div>
+  </nav>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Pacientes</h1>
-
-<table>
+<H1 align="center"> Pacientes </H1>
+<div class="container">
+<table class="centered">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Cédula</th>
       <th>Contraseña</th>
       <th>Nombre</th>
@@ -17,6 +29,7 @@
   <tbody>
     <% @pacientes.each do |paciente| %>
       <tr>
+        <td><%= paciente.id %></td>
         <td><%= paciente.cedula %></td>
         <td><%= paciente.contrasena %></td>
         <td><%= paciente.nombre %></td>
@@ -29,7 +42,8 @@
     <% end %>
   </tbody>
 </table>
-
+<a align="center" href="pacientes/new" class="waves-effect waves-light btn">Nuevo paciente</a>
+</div>
 <br>
 
 <%= link_to 'New Paciente', new_paciente_path %>

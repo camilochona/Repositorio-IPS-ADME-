@@ -6,7 +6,7 @@ class PacientesController < ApplicationController
   def index
     @pacientes = Paciente.all
   end
-
+  
   # GET /pacientes/1
   # GET /pacientes/1.json
   def show
