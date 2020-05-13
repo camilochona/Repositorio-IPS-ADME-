@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Proyecto</title>
+    <title>IPS ADME</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,32 @@
   </head>
 
   <body>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<nav>
+    <div class="row nav-wrapper">
+      <div class="col s1"> <a href="/" class="btn-floating btn-large pulse" style="color:white">Softic</a></div>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      
+      <% if !patient_signed_in? %>
+          <li><a href="patients/sign_in">Conéctate</a></li>
+        <%end%>
+        
+        <% if patient_signed_in? %>
+          <li>Bienvenido, <%=current_patient.nombre%> </li> 
+          <li> <%= link_to "Cerrar Sesión", destroy_patient_session_path, method: :delete %> </li>
+          
+        <%end%>
+        <% if !patient_signed_in? %>
+          <li><a href="patients/sign_up" class="waves-effect waves-light btn">Registrate</a></li>
+        <%end%>
+      </ul>
+    </div>
+  </nav>
+<br>
+<br>
+<br>
+
+
     <%if notice %>
       <p class="notice"><%= notice %></p>
     <%end%>
