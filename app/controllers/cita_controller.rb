@@ -1,6 +1,6 @@
 class CitaController < ApplicationController
   before_action :set_citum, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_patient!, only: [:index, :new, :show, :edit, :update, :destroy]
   # GET /cita
   # GET /cita.json
   def index
@@ -25,7 +25,7 @@ class CitaController < ApplicationController
   # POST /cita.json
   def create
     @citum = Citum.new(citum_params)
-
+    @citum.patient = current_patient
     respond_to do |format|
       if @citum.save
         format.html { redirect_to @citum, notice: 'Citum was successfully created.' }
