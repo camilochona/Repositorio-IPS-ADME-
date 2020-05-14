@@ -11,12 +11,12 @@
   </thead>
 
   <tbody>
-    <% @cita.each do |citum| %>
+    <% @citum.each do |citum| %>
       <tr>
         <td><%= citum.Fecha %></td>
-        <td><%= link_to 'Show', citum %></td>
-        <td><%= link_to 'Edit', edit_citum_path(citum) %></td>
-        <td><%= link_to 'Destroy', citum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', citum %></td>
+        <td><%= link_to 'Aplazar', edit_citum_path(citum) %></td>
+        <td><%= link_to 'Eliminar', citum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

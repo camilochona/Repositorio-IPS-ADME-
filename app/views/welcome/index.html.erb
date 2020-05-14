@@ -1,18 +1,25 @@
 <div class="row login">
     <div class="col s4 14 offset-14">
-        <div>
-            <div class="card-action">
-                <h3 align=center>Puedes conectarte fácilmente</h3>
-            </div>
+        <div>            
             <div class="card-content">
                 <div class="form-field">
                     <br>
                     <div class="center-align">                    
-                    <a href="/patients/sign_up" class="waves-effect waves-light btn-large">Registrate</a>
-                    </div>
-                    <br>
-                    <div class="center-align">
-                    <a href="/patients/sign_in" class="waves-effect waves-light btn-large">Inicia Sesión</a>
+                    <% if patient_signed_in? %>
+                        <div class="card-action">
+                            <h3 align=center>Bienvenido Paciente <%=current_patient.nombre%></h3>                            
+                        </div>
+                        <li><a href="/cita" class="waves-effect waves-light btn-large">Mis Citas</a></li>
+                    <% else %>
+                        <div class="card-action">
+                            <h3 align=center>Puedes conectarte fácilmente</h3>
+                        </div>
+                        <a href="/patients/sign_up" class="waves-effect waves-light btn-large">Registrate</a>
+                        </div>
+                        <br>
+                        <div class="center-align">
+                        <a href="/patients/sign_in" class="waves-effect waves-light btn-large">Inicia Sesión</a>
+                    <% end %>                   
                     </div>
                 </div>
             </div>

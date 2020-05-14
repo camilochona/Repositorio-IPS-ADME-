@@ -1,10 +1,10 @@
 class CitaController < ApplicationController
-  before_action :set_citum, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_patient!, only: [:index, :new, :show, :edit, :update, :destroy]
+  before_action :set_citum, only: [:show, :edit, :update, :destroy, :from_patient]
+  before_action :authenticate_patient!, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   # GET /cita
   # GET /cita.json
   def index
-    @cita = Citum.all
+    @citum = Citum.where(patient_id: current_patient.id)
   end
 
   # GET /cita/1
@@ -70,5 +70,9 @@ class CitaController < ApplicationController
     # Only allow a list of trusted parameters through.
     def citum_params
       params.require(:citum).permit(:Fecha)
+    end
+
+    def from_patient
+      @citum = Citum.find(params[:patient_id]) 
     end
 end
