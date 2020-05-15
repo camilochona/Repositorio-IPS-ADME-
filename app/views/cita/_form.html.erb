@@ -12,11 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :Fecha %>
-    <%= form.text_field :Fecha %>
-  </div>
+    <div class="row">
+      <div class="col s4"></div>
+      <div class="col s4 14 offset-14">
+          <form action="/cita" method="post">
+              <input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token %>">
+             <p>
+                  <label>Fecha de la cita:</label>
+                 <input type="text" class="datepicker" name="citum[Fecha]" value=>
+              </p>
+              <div class="center-align">
+              <input type="submit" value="Crear" class="waves-effect waves-light btn" align="center">
+              </div>
+          </form>
+          <%= link_to 'Back', cita_path %>
 
-  <div class="actions">
-    <%= form.submit %>
+      </div>
+    </div>
   </div>
+  <script>
+    const Calender = document.querySelector('.datepicker') ;
+    M.Datepicker.init(Calender,{}); 
+</script>
 <% end %>
