@@ -15,13 +15,26 @@
     <div class="row nav-wrapper">
       <div class="col s1"> <a href="/" class="btn-floating btn-large pulse" style="color:white">IPS ACME</a></div>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li>                     
+        <li>
+        <a href="/workers" class="waves-effect waves-light btn">Personal IPS</a>
         </li>
         <% if patient_signed_in? %>                    
           <li>
-          <%= link_to "Cerrar Sesión", destroy_patient_session_path, method: :delete, class: "waves-effect waves-light btn-large" %> 
+          <%= link_to "Cerrar Sesión", destroy_patient_session_path, method: :delete, class: "waves-effect waves-light btn" %> 
           </li>
-        <%end%>        
+        <% elsif medic_signed_in? %>
+          <li>
+          <%= link_to "Cerrar Sesión", destroy_medic_session_path, method: :delete, class: "waves-effect waves-light btn" %> 
+          </li>
+        <% elsif secretary_signed_in? %>
+          <li>
+          <%= link_to "Cerrar Sesión", destroy_secretary_session_path, method: :delete, class: "waves-effect waves-light btn" %> 
+          </li>
+        <% elsif boss_signed_in? %>
+          <li>
+          <%= link_to "Cerrar Sesión", destroy_boss_session_path, method: :delete, class: "waves-effect waves-light btn" %> 
+          </li>
+        <%end%>                   
       </ul>
     </div>
   </nav>

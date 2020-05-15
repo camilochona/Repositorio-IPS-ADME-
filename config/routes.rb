@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   #Main page
   root to: "welcome#index"
   get 'welcome' => "welcome#index"
+  get 'workers' => "workers#workers"
 end
