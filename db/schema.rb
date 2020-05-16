@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_15_143334) do
+ActiveRecord::Schema.define(version: 2020_05_16_184609) do
 
   create_table "bosses", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2020_05_15_143334) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "patient_id", null: false
+    t.integer "medic_id", null: false
+    t.index ["medic_id"], name: "index_cita_on_medic_id"
     t.index ["patient_id"], name: "index_cita_on_patient_id"
   end
 
@@ -82,5 +84,6 @@ ActiveRecord::Schema.define(version: 2020_05_15_143334) do
     t.index ["reset_password_token"], name: "index_secretaries_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cita", "medics"
   add_foreign_key "cita", "patients"
 end
