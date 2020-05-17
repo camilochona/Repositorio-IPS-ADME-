@@ -3,7 +3,6 @@
   <div class="col s4"></div>
   <div class="col s4 14 offset-14">
 <div class="container">
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field center-align">
     <%= f.label :email %><br />
@@ -16,14 +15,14 @@
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="field center-align">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <div class="field">
+      
     </div>
   <% end %>
 
   <div class="actions center-align">
-    <%= f.submit "Inicia Sesión" %>
+    <br>
+    <%= f.submit "Inicia Sesión", class: "waves-effect waves-light btn" %>
   </div>
 <% end %>
 

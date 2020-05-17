@@ -1,4 +1,4 @@
-<h2 class="center-align">Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
 <div class="row">
   <div class="col s4"></div>
   <div class="col s4 14 offset-14">
@@ -33,7 +33,7 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
-  <div class="actions">
+  <div class="actions center-align">
     <%= f.submit "Update" %>
   </div>
 <% end %>

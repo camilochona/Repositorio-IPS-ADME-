@@ -1,6 +1,8 @@
 <div class="row center-align">
 <p id="notice"><%= notice %></p>
-
+<div class="row">
+  <div class="col s4"></div>
+  <div class="col s4 14 offset-14 center-align">
 <p>
   <strong>Fecha:</strong>
   <%= @citum.Fecha %>
@@ -8,4 +10,5 @@
 
 <%= link_to 'Edit', edit_citum_path(@citum) %> |
 <%= link_to 'Back', cita_path %>
+</div>
 </div>
