@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <html>
   <head>
     <title>IPS ACME</title>
@@ -12,8 +14,8 @@
   <body>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <nav>
-    <div class="row nav-wrapper">
-      <div class="col s1"> <a href="/" class="btn-floating btn-large pulse" style="color:white">IPS ACME</a></div>
+    <div class="row nav-wrapper blue accent-1">
+      <div class="col s1"> <a href="/" class="btn-floating btn-large pulse" style="color:white">ACME</a></div>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li>
         <a href="/workers" class="waves-effect waves-light btn">Personal IPS</a>
@@ -51,4 +53,22 @@
     <%end%>
     <%= yield %>  
   </body>
+
+   <!--footer-->
+  <footer class="page-footer grey darken-3">
+    <div class="container">
+      <div class="row">
+        <div class="col s6 16 center-align">
+          <h5>Acerca De Nosotros</h5>
+          <p>Somos una ips que se encarga de la salud de miles de Colombianos</p>
+        </div>
+          <h5>Contactanos</h5>
+          <ul>
+            <li><a href="#" class="grey-text text-lighten-3">Facebook</a></li>
+            <li><a href="#" class="grey-text text-lighten-3">Twitter</a></li>
+            <li><a href="#" class="grey-text text-lighten-3">Instagram</a></li>
+          </ul>
+      </div>
+    </div>
+  </footer>
 </html>
