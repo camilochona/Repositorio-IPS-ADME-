@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="col s4"></div>
+  <div class="col s4 14 offset-14 center-align">
+<p>
+  <strong>Fecha:</strong>
+  <%= @cita.fecha %>
+</p>
+<p>
+  <strong>Hora:</strong>
+  <%= @cita.hora %>
+</p>
+<p>
+  <strong>Medico:</strong>
+  <%= @cita.medic.nombre %>
+  <%= @cita.medic.apellido %>
+</p>
+
+<%= link_to 'Editar Cita', edit_cita_path(@cita), class: "waves-effect waves-light btn" %>
+<br><br>
+<%= link_to 'Atrás', citas_path, class: "waves-effect waves-light btn" %>
+<br><br><br><br>
+</div>
+</div>

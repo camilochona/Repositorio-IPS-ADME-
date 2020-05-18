@@ -3,7 +3,7 @@ class Medic < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :citums
+  has_many :citas
   def nombre_y_apellido
     "#{nombre} #{apellido}"
   end

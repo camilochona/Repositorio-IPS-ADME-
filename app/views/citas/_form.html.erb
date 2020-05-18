@@ -1,0 +1,37 @@
+<%= form_with(model: cita, local: true) do |form| %>
+  <% if cita.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cita.errors.count, "error") %> prohibited this cita from being saved:</h2>
+
+      <ul>
+        <% cita.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+  <%= form.label :medic_id, "Medico para Consulta" %><br />
+  <%= form.collection_select :medic_id, Medic.all, :id, :nombre_y_apellido, {prompt: "Seleccione un Medico"}, class: "select" %>
+</div>
+  <p>
+  <label>Fecha de la cita:</label>
+  <%= form.text_field :fecha, class: "datepicker" %>
+  </p>
+  <p>
+  <label>Hora de la cita:</label>
+  <%= form.text_field :hora %>
+  </p>
+  <div class="center-align">
+  <input type="submit" value="Agendar cita" class="waves-effect waves-light btn" align="center">
+  </div>
+  <% end %>
+  <script>
+  document.addEventListener('turbolinks:load', () => {
+  const Calender = document.querySelector('.datepicker') ;
+  M.Datepicker.init(Calender,{});
+  var elems = document.querySelectorAll('.select');
+  var instances = M.FormSelect.init(elems, {});
+  });
+  </script>

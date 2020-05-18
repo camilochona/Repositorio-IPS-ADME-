@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_16_184609) do
+ActiveRecord::Schema.define(version: 2020_05_18_190617) do
 
   create_table "bosses", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,14 +27,15 @@ ActiveRecord::Schema.define(version: 2020_05_16_184609) do
     t.index ["reset_password_token"], name: "index_bosses_on_reset_password_token", unique: true
   end
 
-  create_table "cita", force: :cascade do |t|
-    t.string "Fecha"
+  create_table "citas", force: :cascade do |t|
+    t.string "fecha"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "patient_id", null: false
     t.integer "medic_id", null: false
-    t.index ["medic_id"], name: "index_cita_on_medic_id"
-    t.index ["patient_id"], name: "index_cita_on_patient_id"
+    t.string "hora"
+    t.index ["medic_id"], name: "index_citas_on_medic_id"
+    t.index ["patient_id"], name: "index_citas_on_patient_id"
   end
 
   create_table "medics", force: :cascade do |t|
@@ -84,6 +85,6 @@ ActiveRecord::Schema.define(version: 2020_05_16_184609) do
     t.index ["reset_password_token"], name: "index_secretaries_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "cita", "medics"
-  add_foreign_key "cita", "patients"
+  add_foreign_key "citas", "medics"
+  add_foreign_key "citas", "patients"
 end
