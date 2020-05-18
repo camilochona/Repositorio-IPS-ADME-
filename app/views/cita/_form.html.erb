@@ -2,31 +2,29 @@
   <% if citum.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(citum.errors.count, "error") %> prohibited this citum from being saved:</h2>
-
-      <ul>
-        <% citum.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+    <ul>
+      <% citum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
     </div>
   <% end %>
-
-  <div class="field center-align">
-<div class="row">
-      <div class="col s4"></div> 
-      <div class="col s4 14 offset-14">
-          <form action="/cita" method="post">
-              <input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token %>">
-             <p>
-                  <label>Fecha de la cita:</label>
-                 <input type="text" class="datepicker" name="citum[Fecha]" value=>
-              </p>
-              <div class="center-align">
-              <input type="submit" value="Agendar cita" class="waves-effect waves-light btn" align="center">
-              </div>
-          </form>
-<% end %>
-<script>
+  <div class="field">
+    <%= form.label :medic_id, "Medico para Consulta" %><br />
+    <%= form.collection_select :medic_id, Medic.all, :id, :nombre_y_apellido, {prompt: "Seleccione un Medico"}, class: "select" %>
+  </div>
+    <p>
+    <label>Fecha de la cita:</label>
+    <%= form.text_field :Fecha, class: "datepicker" %>
+    </p>
+    <input type="submit" value="Agendar cita" class="waves-effect waves-light btn" align="center">
+    <% end %>
+    <script>
+    document.addEventListener('turbolinks:load', () => {
     const Calender = document.querySelector('.datepicker') ;
-    M.Datepicker.init(Calender,{}); 
-</script>
+    M.Datepicker.init(Calender,{});
+    var elems = document.querySelectorAll('.select');
+    var instances = M.FormSelect.init(elems, {});
+    });
+    </script>
+  

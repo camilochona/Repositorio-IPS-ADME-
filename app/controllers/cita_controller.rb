@@ -69,7 +69,7 @@ class CitaController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def citum_params
-      params.require(:citum).permit(:Fecha)
+      params.require(:citum).permit(:Fecha, :medic_id)
     end
 
     def from_patient

@@ -4,4 +4,7 @@ class Medic < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :citums
+  def nombre_y_apellido
+    "#{nombre} #{apellido}"
+  end
 end
