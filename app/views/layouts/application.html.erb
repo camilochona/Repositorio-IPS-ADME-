@@ -17,9 +17,11 @@
     <div class="row nav-wrapper blue accent-1">
       <div class="col s1"> <a href="/" class="btn-floating btn-large pulse" style="color:white">ACME</a></div>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if patient_signed_in? == false %>
         <li>
-        <a href="/workers" class="waves-effect waves-light btn">Personal IPS</a>
+        <a href="/workers" class="waves-effect waves-light btn">Acceso Personal IPS</a>
         </li>
+        <%end%>
         <% if patient_signed_in? %>                    
           <li>
           <%= link_to "Cerrar Sesión", destroy_patient_session_path, method: :delete, class: "waves-effect waves-light btn" %> 
