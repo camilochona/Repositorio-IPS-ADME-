@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_for :patients
   #Main page
   root to: "welcome#index"
-  get 'workers/init' => "workers#init", :as => :medic_root
+  get 'workers/informe_medico' => "workers#informe_medico", :as => :medic_root
   get 'workers' => "workers#workers", :as => :secretary_root
   get 'workers' => "workers#workers", :as => :boss_root
   get 'welcome' => "welcome#index", :as => :patient_root
